@@ -1,0 +1,18 @@
+:root {
+    --bkg: rgb(3, 66, 26);
+    --text: rgb(244, 244, 226);
+    --accent1: rgb(240, 206, 184);
+}
+body {
+    background-color: var(--bkg);
+    color: var(--text);
+    font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+a {
+    color: var(--text);
+}
+
+a:visited {
+    color: var(--accent1);
+}
