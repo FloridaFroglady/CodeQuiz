@@ -5,21 +5,32 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="/css/mainstyle.css" />
-    <title>Coding Quiz</title>
+    <title>Coding Quiz Homepage</title>
   </head>
   <body>
     <a href="/scores.html">View High Scores</a>
 
     <h1>Welcome to Coding Quiz!</h1>
     <p class="subheading">
-      Here you can test your general HTML, CSS and Javascript knowledge.
+      Here you can test your general Javascript knowledge.
     </p>
     <p class="ruleheading">How To Play:</p>
     <ul>
-      <li>Questions are multiple choice.</li>
-      <li>You will have one minute to answer as many questions as you can.</li>
-      <li>Incorrect answers will cost you 5 seconds off the timer.</li>
+      <li>Questions are multiple choice. There are 6 questions.</li>
+      <li>The quiz is timed. Your score is the time left on the 60 second timer.</li>
+      <li>Incorrect answers will cost you 5 seconds off the timer (5 points off your score).</li>
       <li>There is a high score table for you to track your progress.</li>
     </ul>
+    
+    <div class="ready">Ready to Start?
+    </div>
+
+    <div id="start"><button type="start"  class="start-btn">Start Quiz</button>
+    </div>
+    
+    <div class="quizbox" id ="quizbox">
+      <ol id="quizDisplay" type="a"></ol>
+    </div>
+    <script src="/js/quizscript.js"></script>
   </body>
 </html>

@@ -2,6 +2,7 @@
     --bkg: rgb(3, 66, 26);
     --text: rgb(244, 244, 226);
     --accent1: rgb(240, 206, 184);
+    --accent2: rgb(6, 101, 144);
 }
 body {
     background-color: var(--bkg);
