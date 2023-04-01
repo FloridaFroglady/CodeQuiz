@@ -2,8 +2,13 @@ var startEl = document.getElementById("start");
 var timerEl = document.getElementById("timer");
 var quizboxEl = document.getElementById("quizbox");
 var scoreboxEl = document.getElementById("scorebox");
-var queryEl = document.getElementById("query");
-var quizDisplayEl = document.getElementById("quizDisplay");
+var questionEl = document.getElementById("question");
+var choicesEl = document.getElementById("choices");
+var aEl = document.getElementById("liA");
+var bEl = document.getElementById("liB");
+var cEl = document.getElementById("liC");
+var dEl = document.getElementById("liD");
+var correctCount = 0;
 
 //event listener for start button
 document.getElementById("start").addEventListener("click", startQuiz);
@@ -20,86 +25,76 @@ document.getElementById("start").addEventListener("click", startQuiz);
 
 
 var questions = [
-{
-q: "Which data type is '36'?",
-a: "number",
-b: "bigint",
-c: "boolean",
-d: "string",
-correct: "d"
-},
-
-{
-q: "What is the symbol for strict equality?",
-a: "=",
-b: "==",
-c: "===",
-d: "!==",
-correct: "c"
-},
-
-{
-q: "What does the + symbol do?",
-a: "addition only",
-b: "addition or concatenation",
-c: "addition or assignment",
-d: "assignment or concatenation",
-correct: "b"
-},
-
-{
-q: "What is a function called by an event?",
-a: "event listener",
-b: "event trigger",
-c: "event handler",
-d: "event organizer",
-correct: "c"
-},
-
-{
-q: "What are the generic variables in a function's argument list?",
-a: "arguments",
-b: "function variables",
-c: "parameters",
-d: "placeholders",
-correct: "c"
-},
-
-{
-q: "What does the array method .pop() do?",
-a: "remove the last array item",
-b: "remove an array item by index",
-c: "remove the first array item",
-d: "add an array item at the end of the array",
-correct: "a"
-}
-];
-
-
-
-function startQuiz() {
+  {
+  q: "Which data type is '36'?",
+  answers: ["number", "bigint", "boolean", "string"],
+  correct: "d"
+  },
   
-    for (i=0; i < questions.length; i++) {
-        var currentQuestion = questions[i].q;
-        var h2New = document.createElement("h2")
-        var liNewA = document.createElement("li");
-        var liNewB = document.createElement("li");
-        var liNewC = document.createElement("li");
-        var liNewD = document.createElement("li");
-        
-        h2New.textContent=currentQuestion;
-        liNewA.textContent=questions[i].a;
-        liNewB.textContent=questions[i].b;
-        liNewC.textContent=questions[i].c;
-        liNewD.textContent=questions[i].d;
-        
-        quizDisplayEl.appendChild(h2New);
-        quizDisplayEl.appendChild(liNewA);
-        quizDisplayEl.appendChild(liNewB);
-        quizDisplayEl.appendChild(liNewC);
-        quizDisplayEl.appendChild(liNewD);
-        ;
-    }
-    
+  {
+  q: "What is the symbol for strict equality?",
+  answers: ["=", "==", "===","!=="],
+  correct: "c"
+  },
+  
+  {
+  q: "What does the + symbol do?",
+  answers: ["addition only", "addition or concatenation", "addition or assignment", "assignment or concatenation"],
+  correct: "b"
+  },
+  
+  {
+  q: "What is a function called by an event?",
+  answers: ["event listener", "event trigger", "event handler", "event organizer"],
+  correct: "c"
+  },
+  
+  {
+  q: "What are the generic variables in a function declaration's argument list?",
+  answers: ["arguments", "function variables", "parameters", "placeholders"],
+  correct: "c"
+  },
+  
+  {
+  q: "What does the array method .pop() do?",
+  answers: ["remove the last array item", "remove an array item by index","remove the first array item", "add an array item at the end of the array"],
+  correct: "a"
+  }
+  ];
 
-}
+ function checkAnswer(event) {
+  console.log(event.target);
+   console.log(event.target.value);
+  
+   if (event.target.value = questions[i].correct) {
+    startQuiz();
+  }
+    else {
+      timer - 5000;
+      startQuiz();
+    }
+  }  
+
+
+ function startQuiz() {
+  for (i = 0;i < questions.length; i++){
+    
+   questionEl.textContent = questions[i].q;
+   aEl.textContent = questions[i].answers[0];
+   bEl.textContent = questions[i].answers[1];
+   cEl.textContent = questions[i].answers[2];
+   dEl.textContent = questions[i].answers[3];
+ 
+   choicesEl.appendChild(aEl);
+   choicesEl.appendChild(bEl);
+   choicesEl.appendChild(cEl);
+   choicesEl.appendChild(dEl);
+
+   aEl.addEventListener("click", checkAnswer);
+   bEl.addEventListener("click", checkAnswer);
+   cEl.addEventListener("click", checkAnswer);
+   dEl.addEventListener("click", checkAnswer);
+   
+    }  
+   
+ }
